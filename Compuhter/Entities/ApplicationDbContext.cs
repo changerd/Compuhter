@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Compuhter.Entities
 {
-    public class AplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext() : base("ApplicationDbContext") { }
 

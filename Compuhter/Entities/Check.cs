@@ -10,6 +10,7 @@ namespace Compuhter.Entities
     {
         public int CheckId { get; set; }
         public decimal Amount { get; set; }
+        public DateTime CheckDate { get; set; }
         public int ClientId { get; set; }
         public Client Client { get; set; }
         public int EmployeeId { get; set; }
