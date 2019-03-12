@@ -43,12 +43,12 @@
             this.maskedTextBoxTelephone.Location = new System.Drawing.Point(116, 119);
             this.maskedTextBoxTelephone.Mask = "+375-##-###-##-##";
             this.maskedTextBoxTelephone.Name = "maskedTextBoxTelephone";
-            this.maskedTextBoxTelephone.Size = new System.Drawing.Size(121, 20);
+            this.maskedTextBoxTelephone.Size = new System.Drawing.Size(188, 20);
             this.maskedTextBoxTelephone.TabIndex = 22;
             // 
             // metroTileClientEdit
             // 
-            this.metroTileClientEdit.Location = new System.Drawing.Point(73, 154);
+            this.metroTileClientEdit.Location = new System.Drawing.Point(110, 154);
             this.metroTileClientEdit.Name = "metroTileClientEdit";
             this.metroTileClientEdit.Size = new System.Drawing.Size(112, 23);
             this.metroTileClientEdit.Style = MetroFramework.MetroColorStyle.Green;
@@ -60,7 +60,7 @@
             // 
             // metroTileClientAdd
             // 
-            this.metroTileClientAdd.Location = new System.Drawing.Point(89, 154);
+            this.metroTileClientAdd.Location = new System.Drawing.Point(126, 154);
             this.metroTileClientAdd.Name = "metroTileClientAdd";
             this.metroTileClientAdd.Size = new System.Drawing.Size(75, 23);
             this.metroTileClientAdd.Style = MetroFramework.MetroColorStyle.Green;
@@ -74,14 +74,14 @@
             // 
             this.metroTextBoxFirstName.Location = new System.Drawing.Point(116, 91);
             this.metroTextBoxFirstName.Name = "metroTextBoxFirstName";
-            this.metroTextBoxFirstName.Size = new System.Drawing.Size(121, 23);
+            this.metroTextBoxFirstName.Size = new System.Drawing.Size(188, 23);
             this.metroTextBoxFirstName.TabIndex = 18;
             // 
             // metroTextBoxSurname
             // 
             this.metroTextBoxSurname.Location = new System.Drawing.Point(116, 62);
             this.metroTextBoxSurname.Name = "metroTextBoxSurname";
-            this.metroTextBoxSurname.Size = new System.Drawing.Size(121, 23);
+            this.metroTextBoxSurname.Size = new System.Drawing.Size(188, 23);
             this.metroTextBoxSurname.TabIndex = 17;
             // 
             // metroLabel5
@@ -118,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 200);
+            this.ClientSize = new System.Drawing.Size(327, 200);
             this.Controls.Add(this.maskedTextBoxTelephone);
             this.Controls.Add(this.metroTileClientEdit);
             this.Controls.Add(this.metroTileClientAdd);
@@ -128,8 +128,8 @@
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(259, 200);
-            this.MinimumSize = new System.Drawing.Size(259, 200);
+            this.MaximumSize = new System.Drawing.Size(327, 200);
+            this.MinimumSize = new System.Drawing.Size(327, 200);
             this.Name = "ClientEntityForm";
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "ClientEntityForm";

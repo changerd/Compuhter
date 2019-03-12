@@ -98,33 +98,33 @@
             this.metroComboBoxPosition.ItemHeight = 23;
             this.metroComboBoxPosition.Location = new System.Drawing.Point(131, 56);
             this.metroComboBoxPosition.Name = "metroComboBoxPosition";
-            this.metroComboBoxPosition.Size = new System.Drawing.Size(121, 29);
+            this.metroComboBoxPosition.Size = new System.Drawing.Size(219, 29);
             this.metroComboBoxPosition.TabIndex = 5;
             // 
             // metroTextBoxSurname
             // 
             this.metroTextBoxSurname.Location = new System.Drawing.Point(131, 91);
             this.metroTextBoxSurname.Name = "metroTextBoxSurname";
-            this.metroTextBoxSurname.Size = new System.Drawing.Size(121, 23);
+            this.metroTextBoxSurname.Size = new System.Drawing.Size(219, 23);
             this.metroTextBoxSurname.TabIndex = 6;
             // 
             // metroTextBoxFirstName
             // 
             this.metroTextBoxFirstName.Location = new System.Drawing.Point(131, 120);
             this.metroTextBoxFirstName.Name = "metroTextBoxFirstName";
-            this.metroTextBoxFirstName.Size = new System.Drawing.Size(121, 23);
+            this.metroTextBoxFirstName.Size = new System.Drawing.Size(219, 23);
             this.metroTextBoxFirstName.TabIndex = 7;
             // 
             // metroTextBoxSecondName
             // 
             this.metroTextBoxSecondName.Location = new System.Drawing.Point(131, 149);
             this.metroTextBoxSecondName.Name = "metroTextBoxSecondName";
-            this.metroTextBoxSecondName.Size = new System.Drawing.Size(121, 23);
+            this.metroTextBoxSecondName.Size = new System.Drawing.Size(219, 23);
             this.metroTextBoxSecondName.TabIndex = 8;
             // 
             // metroTileEmployeeAdd
             // 
-            this.metroTileEmployeeAdd.Location = new System.Drawing.Point(101, 218);
+            this.metroTileEmployeeAdd.Location = new System.Drawing.Point(147, 214);
             this.metroTileEmployeeAdd.Name = "metroTileEmployeeAdd";
             this.metroTileEmployeeAdd.Size = new System.Drawing.Size(75, 23);
             this.metroTileEmployeeAdd.Style = MetroFramework.MetroColorStyle.Green;
@@ -136,7 +136,7 @@
             // 
             // metroTileEmployeeEdit
             // 
-            this.metroTileEmployeeEdit.Location = new System.Drawing.Point(88, 218);
+            this.metroTileEmployeeEdit.Location = new System.Drawing.Point(134, 214);
             this.metroTileEmployeeEdit.Name = "metroTileEmployeeEdit";
             this.metroTileEmployeeEdit.Size = new System.Drawing.Size(112, 23);
             this.metroTileEmployeeEdit.Style = MetroFramework.MetroColorStyle.Green;
@@ -151,14 +151,14 @@
             this.maskedTextBoxTelephone.Location = new System.Drawing.Point(131, 181);
             this.maskedTextBoxTelephone.Mask = "+375-##-###-##-##";
             this.maskedTextBoxTelephone.Name = "maskedTextBoxTelephone";
-            this.maskedTextBoxTelephone.Size = new System.Drawing.Size(121, 20);
+            this.maskedTextBoxTelephone.Size = new System.Drawing.Size(219, 20);
             this.maskedTextBoxTelephone.TabIndex = 12;
             // 
             // EmployeeEntityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 260);
+            this.ClientSize = new System.Drawing.Size(373, 260);
             this.Controls.Add(this.maskedTextBoxTelephone);
             this.Controls.Add(this.metroTileEmployeeEdit);
             this.Controls.Add(this.metroTileEmployeeAdd);
@@ -172,8 +172,8 @@
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(288, 260);
-            this.MinimumSize = new System.Drawing.Size(288, 260);
+            this.MaximumSize = new System.Drawing.Size(373, 260);
+            this.MinimumSize = new System.Drawing.Size(373, 260);
             this.Name = "EmployeeEntityForm";
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "EmployeeEntityForm";

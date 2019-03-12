@@ -165,13 +165,20 @@ namespace Compuhter
 
         private void metroButtonProductCheckAdd_Click(object sender, EventArgs e)
         {
-            int cid = Convert.ToInt32(dataGridViewCheck.SelectedCells[0].Value.ToString());
-            var check = db.Checks.Find(cid);
-            ProductCheckEntityForm form = new ProductCheckEntityForm();
-            form.Text = "Добавление товара в чек";
-            form.CheckId = check.CheckId;
-            form.btnAddvisible = true;
-            form.Show();
+            try
+            {
+                int cid = Convert.ToInt32(dataGridViewCheck.SelectedCells[0].Value.ToString());
+                var check = db.Checks.Find(cid);
+                ProductCheckEntityForm form = new ProductCheckEntityForm();
+                form.Text = "Добавление товара в чек";
+                form.CheckId = check.CheckId;
+                form.btnAddvisible = true;
+                form.Show();
+            }
+            catch (Exception gg)
+            {
+                MessageBox.Show(gg.Message, "Ошибка");
+            }
         }
 
         private void metroButtonProductCheckEdit_Click(object sender, EventArgs e)
@@ -325,8 +332,8 @@ namespace Compuhter
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
                 saveFileDialog1.Title = "Сохранение doc файла";
                 saveFileDialog1.Filter = "doc файлы (*.doc)|*.doc|Все файлы (*.*)|*.*";
@@ -337,60 +344,60 @@ namespace Compuhter
                     int cid = Convert.ToInt32(dataGridViewCheck.SelectedCells[0].Value.ToString());
                     var productchecks = db.ProductChecks.Include(c => c.Check).Include(p => p.Product).Where(c => c.CheckId == cid).ToList();
                     var check = db.Checks.Include(c => c.Client).Include(c => c.Employee).SingleOrDefault(c => c.CheckId == cid);
-                object oMissing = System.Reflection.Missing.Value;
-                object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
+                    object oMissing = System.Reflection.Missing.Value;
+                    object oEndOfDoc = "\\endofdoc"; /* \endofdoc is a predefined bookmark */
 
-                //Start Word and create a new document.
-                Word._Application oWord;
-                Word._Document oDoc;
-                oWord = new Word.Application();                
-                oDoc = oWord.Documents.Add(ref oMissing, ref oMissing,
-                ref oMissing, ref oMissing);
-                Word.Paragraph oPara1;
-                oPara1 = oDoc.Content.Paragraphs.Add(ref oMissing);
-                oPara1.Range.Text = "Чек №" + check.CheckId;
-                oPara1.Range.Font.Bold = 1;                
-                oPara1.Format.SpaceAfter = 24;
-                oPara1.Range.InsertParagraphAfter();
-                
-                Word.Paragraph oPara2;
-                object oRng = oDoc.Bookmarks.get_Item(ref oEndOfDoc).Range;
-                oPara2 = oDoc.Content.Paragraphs.Add(ref oRng);
-                oPara2.Range.Text = "Клиент: " + check.Client.ClientSurName + " " + check.Client.ClientFirstName + "\n" +
-                    "Сотрудник: " + check.Employee.EmployeeSurName + " " + check.Employee.EmployeeFirstName + "\n" +
-                    "Дата: " + check.CheckDate;                             
-                oPara2.Format.SpaceAfter = 12;
-                oPara2.Range.InsertParagraphAfter();
+                    //Start Word and create a new document.
+                    Word._Application oWord;
+                    Word._Document oDoc;
+                    oWord = new Word.Application();
+                    oDoc = oWord.Documents.Add(ref oMissing, ref oMissing,
+                    ref oMissing, ref oMissing);
+                    Word.Paragraph oPara1;
+                    oPara1 = oDoc.Content.Paragraphs.Add(ref oMissing);
+                    oPara1.Range.Text = "Чек №" + check.CheckId;
+                    oPara1.Range.Font.Bold = 1;                    
+                    oPara1.Format.SpaceAfter = 24;
+                    oPara1.Range.InsertParagraphAfter();
 
-                Word.Table oTable;
-                Word.Range wrdRng = oDoc.Bookmarks.get_Item(ref oEndOfDoc).Range;
-                oTable = oDoc.Tables.Add(wrdRng, productchecks.Count + 3, 4, ref oMissing, ref oMissing);
-                int i = 2;
-                oTable.Cell(1, 1).Range.Text = "Товары:";
-                oTable.Cell(2, 1).Range.Text = "Производитель";
-                oTable.Cell(2, 2).Range.Text = "Название";
-                oTable.Cell(2, 3).Range.Text = "Цена";
-                oTable.Cell(2, 4).Range.Text = "Количество";                
-                foreach (var pc in productchecks)
-                {
+                    Word.Paragraph oPara2;
+                    object oRng = oDoc.Bookmarks.get_Item(ref oEndOfDoc).Range;
+                    oPara2 = oDoc.Content.Paragraphs.Add(ref oRng);
+                    oPara2.Range.Text = "Клиент: " + check.Client.ClientSurName + " " + check.Client.ClientFirstName + "\n" +
+                        "Сотрудник: " + check.Employee.EmployeeSurName + " " + check.Employee.EmployeeFirstName + "\n" +
+                        "Дата: " + check.CheckDate;
+                    oPara2.Format.SpaceAfter = 12;
+                    oPara2.Range.InsertParagraphAfter();
+
+                    Word.Table oTable;
+                    Word.Range wrdRng = oDoc.Bookmarks.get_Item(ref oEndOfDoc).Range;
+                    oTable = oDoc.Tables.Add(wrdRng, productchecks.Count + 3, 4, ref oMissing, ref oMissing);
+                    int i = 2;
+                    oTable.Cell(1, 1).Range.Text = "Товары:";
+                    oTable.Cell(2, 1).Range.Text = "Производитель";
+                    oTable.Cell(2, 2).Range.Text = "Название";
+                    oTable.Cell(2, 3).Range.Text = "Цена";
+                    oTable.Cell(2, 4).Range.Text = "Количество";
+                    foreach (var pc in productchecks)
+                    {
+                        i++;
+                        oTable.Cell(i, 1).Range.Text = pc.Product.ProductManufacturer;
+                        oTable.Cell(i, 2).Range.Text = pc.Product.ProductName;
+                        oTable.Cell(i, 3).Range.Text = pc.Product.ProductCost.ToString();
+                        oTable.Cell(i, 4).Range.Text = pc.Quantity.ToString();
+                    }
                     i++;
-                    oTable.Cell(i, 1).Range.Text = pc.Product.ProductManufacturer;
-                    oTable.Cell(i, 2).Range.Text = pc.Product.ProductName;
-                    oTable.Cell(i, 3).Range.Text = pc.Product.ProductCost.ToString();
-                    oTable.Cell(i, 4).Range.Text = pc.Quantity.ToString();
-                }
-                i++;
-                oTable.Cell(i, 1).Range.Text = "Итого: ";
-                oTable.Cell(i, 2).Range.Text = productchecks.Sum(s => s.Product.ProductCost * s.Quantity).ToString();                
-                oDoc.SaveAs(string.Format(saveFileDialog1.FileName));
+                    oTable.Cell(i, 1).Range.Text = "Итого: ";
+                    oTable.Cell(i, 2).Range.Text = productchecks.Sum(s => s.Product.ProductCost * s.Quantity).ToString();
+                    oDoc.SaveAs(string.Format(saveFileDialog1.FileName));
                     oWord.Quit();
                     MessageBox.Show("Word-файл успешно сохранён", "Compuhter");
                 }
-            //}
-            //catch (Exception gg)
-            //{
-             //   MessageBox.Show(gg.Message, "Ошибка");
-            //}
+            }
+            catch (Exception gg)
+            {
+                MessageBox.Show(gg.Message, "Ошибка");
+            }
         }
     }
 }
